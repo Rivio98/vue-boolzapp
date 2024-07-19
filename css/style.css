@@ -27,4 +27,10 @@ main {
 
 .center {
     height: 80%;
+    overflow-y: scroll;
+}
+
+.bg-center {
+    background-image: url(../img/mine.jpg);
+    background-size: cover;
 }
