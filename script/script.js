@@ -168,5 +168,10 @@ createApp({
                 }
             ]
         }
+    },
+    methods: {
+        showMessage(index) {
+            this.activeContact = index;
+        }
     }
 }).mount('#app');

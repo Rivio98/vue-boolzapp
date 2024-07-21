@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-12 d-flex mt-4">
                         <div class="col-4">
-                            <div id="left" class="justify-content-start">
+                            <div id="left">
                                 <div class="big-top">
                                     <div class="content d-flex justify-content-between">
                                         <div class="user d-flex align-items-center">
@@ -54,30 +54,41 @@
                                             aria-describedby="addon-wrapping">
                                     </div>
                                 </div>
-                                <div class="center">
-                                    <div class="user pt-1 d-flex" v-for="(contact, index) in contacts">
+                                <div class="center-left">
+                                    <div class="user pt-1 d-flex" v-for="(contact, index) in contacts"
+                                        @click="showMessage(index)">
                                         <div>
                                             <img :src="contact.avatar" alt="">
                                         </div>
                                         <div>
                                             <span class="fw-bold">{{ contact.name }}</span>
-                                            <p>Ultimo accesso alle {{ contact.messages.at(-1).date.split(" ")[1] }}</p>
+                                            <p>Ultimo accesso alle {{ contact.messages.at(-1).date.split(' ')[1] }}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-8">
-                                <div id="right" class="justify-content-end">
-                                    <div class="big-top">
-                                        <div class="content"></div>
-
+                        </div>
+                        <div class="col-8">
+                            <div id="right">
+                                <div class="big-top">
+                                    <div class="content"></div>
+                                </div>
+                                <div class="center-right bg-center pt-3">
+                                    <div class="content">
+                                        <div v-for="message in contacts[activeContact].messages">
+                                            <div v-if="message.status === 'sent'" class="text-end">
+                                                <p class="bg-success d-inline-block p-2 rounded">{{
+                                                    message.message }}</p>
+                                            </div>
+                                            <div v-else class="text-start">
+                                                <p class="bg-light d-inline-block p-2 rounded">{{
+                                                    message.message }}</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="center bg-center">
-                                        <div class="content"></div>
-                                    </div>
-                                    <div class="bottom">
-                                        <div class="content"></div>
-                                    </div>
+                                </div>
+                                <div class="bottom">
+                                    <div class="content"></div>
                                 </div>
                             </div>
                         </div>
