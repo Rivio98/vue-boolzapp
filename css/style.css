@@ -9,28 +9,55 @@ main {
     height: 100vh;
     background-color: rgba(217, 219, 212, 1);
     background-image: linear-gradient(to bottom, rgba(0, 150, 136, 1) 0%, rgba(0, 150, 136, 1) 15%, rgba(217, 219, 212, 1) 15%, rgba(217, 219, 212, 1) 100vh);
+    font-size: small;
 }
 
 #left,
 #right {
     width: 100%;
-    height: 350px;
     background-color: azure;
     border: 1px solid lightgray;
 }
 
+.big-top,
 .top,
 .bottom {
-    height: 10%;
     background-color: #EAEAEA;
+    height: 50px;
+}
+
+.top {
+    background-color: lightskyblue;
+}
+
+.fa-bell-slash {
+    color: lightskyblue;
+    background-color: #fff;
+    border-radius: 50%;
+    font-size: 20px;
+    padding: 8px 6px;
 }
 
 .center {
-    height: 80%;
+    height: calc(100% - 100px);
     overflow-y: scroll;
 }
 
 .bg-center {
     background-image: url(../img/mine.jpg);
-    background-size: cover;
+    background-repeat: repeat;
+}
+
+.input-group {
+    height: 20px;
+}
+
+img {
+    width: 50px;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.user {
+    border-bottom: 1px solid lightgray;
 }
