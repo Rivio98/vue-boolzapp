@@ -71,17 +71,28 @@
                         <div class="col-8">
                             <div id="right">
                                 <div class="big-top">
-                                    <div class="content"></div>
+                                    <div class="content d-flex">
+                                        <div>
+                                            <img :src="contacts[activeContact].avatar"
+                                                :alt="contacts[activeContact].avatar">
+                                        </div>
+                                        <div>
+                                            <span class="fw-bold">{{ contacts[activeContact].name }}</span>
+                                            <p>Ultimo accesso alle {{
+                                                contacts[activeContact].messages.at(-1).date.split(' ')[1] }}</p>
+                                        </div>
+
+                                    </div>
                                 </div>
                                 <div class="center-right bg-center pt-3">
                                     <div class="content">
-                                        <div v-for="message in contacts[activeContact].messages">
+                                        <div v-for="(message, index) in contacts[activeContact].messages">
                                             <div v-if="message.status === 'sent'" class="text-end">
-                                                <p class="bg-success d-inline-block p-2 rounded">{{
+                                                <p class="bg-success d-inline-block p-2 me-4 rounded">{{
                                                     message.message }}</p>
                                             </div>
                                             <div v-else class="text-start">
-                                                <p class="bg-light d-inline-block p-2 rounded">{{
+                                                <p class="bg-light d-inline-block p-2 ms-4 rounded">{{
                                                     message.message }}</p>
                                             </div>
                                         </div>
