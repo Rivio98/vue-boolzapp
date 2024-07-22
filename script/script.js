@@ -189,8 +189,16 @@ createApp({
                         message: 'ciao',
                         status: 'received',
                     });
-                }, 1000);
+                }, 1500);
             }
+        }
+    },
+    computed: {
+        filteredContacts() {
+            const query = this.searchQuery.toLowerCase();
+            return this.contacts.filter(contact =>
+                contact.name.toLowerCase().includes(query)
+            );
         }
     }
 }).mount('#app');
