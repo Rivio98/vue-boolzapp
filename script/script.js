@@ -182,7 +182,15 @@ createApp({
                     status: 'sent',
                 });
                 this.addMessage = '';
+
+                setTimeout(() => {
+                    this.contacts[this.activeContact].messages.push({
+                        date: new Date().toLocaleString(),
+                        message: 'ciao',
+                        status: 'received',
+                    });
+                }, 1000);
             }
-        },
-    },
+        }
+    }
 }).mount('#app');
