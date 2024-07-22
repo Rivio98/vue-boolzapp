@@ -23,7 +23,6 @@ main {
 }
 
 .big-top,
-.top,
 .bottom {
     background-color: #EAEAEA;
     height: 50px;
@@ -31,6 +30,7 @@ main {
 
 .top {
     background-color: lightskyblue;
+    height: 60px;
 }
 
 .fa-bell-slash {
@@ -46,7 +46,7 @@ main {
 }
 
 .center-left {
-    height: calc(100% - 130px);
+    height: calc(100% - 140px);
     overflow-y: scroll;
 }
 
@@ -72,4 +72,11 @@ img {
 
 .user {
     border-bottom: 1px solid lightgray;
+}
+
+.write-messages {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
 }
