@@ -42,11 +42,11 @@ main {
 }
 
 .searchbar {
-    height: 30px;
+    height: 40px;
 }
 
 .center-left {
-    height: calc(100% - 140px);
+    height: calc(100% - 150px);
     overflow-y: scroll;
 }
 
@@ -61,7 +61,7 @@ main {
 }
 
 .input-group {
-    height: 20px;
+    height: 30px;
 }
 
 img {
@@ -79,4 +79,9 @@ img {
     padding: 5px;
     border-radius: 5px;
     border: 1px solid lightgray;
+}
+
+.center-left .user:hover {
+    background-color: lightgrey;
+    cursor: pointer;
 }
