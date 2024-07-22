@@ -34,12 +34,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="top">
+                                <div class="top align-content-center">
                                     <div class="content pt-1 d-flex">
-                                        <div class="ms-1">
+                                        <div class="ms-2 mt-1">
                                             <i class="fas fa-bell-slash rounded-circle"></i>
                                         </div>
-                                        <div>
+                                        <div class="ms-2">
                                             <p class="mx-2 fw-bold mb-0">Ricevi notifiche di nuovi messaggi</p>
                                             <a class="mx-2">Attiva notifiche desktop</a>
                                         </div>
@@ -111,8 +111,13 @@
                                             <i class="fa-regular fa-face-smile"></i>
                                         </div>
                                         <div class="col-10 text-center align-content-center">
-                                            <input type="text" placeholder="scrivi un messaggio" class="write-messages">
+                                            <input type="text" class="write-messages" v-model="addMessage"
+                                                @keyup.enter="sendMessage" placeholder="scrivi un messaggio">
                                         </div>
+                                        <div class="col-1 text-center align-content-center">
+                                            <i class="fa-solid fa-microphone"></i>
+                                        </div>
+
                                         <div class="col-1 text-center align-content-center">
                                             <i class="fa-solid fa-microphone"></i>
                                         </div>
