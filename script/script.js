@@ -3,8 +3,13 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            // Indice del contatto attivo nella chat
             activeContact: 0,
+            // Messaggio che l'utente sta scrivendo
             addMessage: '',
+            // Query di ricerca per filtrare i contatti
+            searchQuery: '',
+            // Lista dei contatti con messaggi
             contacts: [
                 {
                     name: 'Michele',
@@ -170,19 +175,38 @@ createApp({
             ]
         }
     },
+    computed: {
+        // Computed property per filtrare i contatti in base alla searchQuery
+        filteredContacts() {
+            // Se la searchQuery è vuota, restituisce tutti i contatti
+            if (!this.searchQuery.trim()) {
+                return this.contacts;
+            }
+            // Altrimenti, filtra i contatti in base al nome
+            return this.contacts.filter(contact =>
+                contact.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+            );
+        }
+    },
     methods: {
+        // Metodo per mostrare i messaggi di un contatto selezionato
         showMessage(index) {
             this.activeContact = index;
         },
+        // Metodo per inviare un messaggio
         sendMessage() {
+            // Controlla se il messaggio non è vuoto e se c'è un contatto attivo
             if (this.addMessage.trim() !== '' && this.contacts[this.activeContact]) {
+                // Aggiunge il messaggio alla lista dei messaggi del contatto attivo
                 this.contacts[this.activeContact].messages.push({
                     date: new Date().toLocaleString(),
                     message: this.addMessage,
                     status: 'sent',
                 });
+                // Resetta il campo di input del messaggio
                 this.addMessage = '';
 
+                // Simula una risposta automatica dopo 1.5 secondi
                 setTimeout(() => {
                     this.contacts[this.activeContact].messages.push({
                         date: new Date().toLocaleString(),
@@ -191,14 +215,6 @@ createApp({
                     });
                 }, 1500);
             }
-        }
-    },
-    computed: {
-        filteredContacts() {
-            const query = this.searchQuery.toLowerCase();
-            return this.contacts.filter(contact =>
-                contact.name.toLowerCase().includes(query)
-            );
         }
     }
 }).mount('#app');

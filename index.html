@@ -49,14 +49,13 @@
                                     <div class="input-group flex-nowrap">
                                         <span class="input-group-text" id="addon-wrapping"><i
                                                 class="fab fa-sistrix"></i></span>
-                                        <input type="text" class="form-control"
-                                            placeholder="cerca o inizia una nuova chat" aria-label="Username"
-                                            aria-describedby="addon-wrapping">
+                                        <input type="text" v-model="searchQuery" class="form-control"
+                                            placeholder="cerca o inizia una nuova chat" aria-label="Username">
                                     </div>
                                 </div>
                                 <div class="center-left">
-                                    <div class="user pt-1 d-flex" v-for="(contact, index) in contacts"
-                                        @click="showMessage(index)">
+                                    <div class="user pt-1 d-flex" v-for="(contact, index) in filteredContacts"
+                                        :key="index" @click="showMessage(index)">
                                         <div>
                                             <img :src="contact.avatar" alt="">
                                         </div>
@@ -93,14 +92,14 @@
                                 </div>
                                 <div class="center-right bg-center pt-3">
                                     <div class="content">
-                                        <div v-for="(message, index) in contacts[activeContact].messages">
+                                        <div v-for="(message, index) in contacts[activeContact].messages" :key="index">
                                             <div v-if="message.status === 'sent'" class="text-end">
-                                                <p class="bg-success d-inline-block p-2 me-4 rounded">{{
-                                                    message.message }}</p>
+                                                <p class="bg-success d-inline-block p-2 me-4 rounded">{{ message.message
+                                                    }}</p>
                                             </div>
                                             <div v-else class="text-start">
-                                                <p class="bg-light d-inline-block p-2 ms-4 rounded">{{
-                                                    message.message }}</p>
+                                                <p class="bg-light d-inline-block p-2 ms-4 rounded">{{ message.message
+                                                    }}</p>
                                             </div>
                                         </div>
                                     </div>
